@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    background-color: #0c0966;
+    justify-content: space-around;
+    color: white;
+    height: 50px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 4px;
+}
+
+nav .logo {
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-family: 'Chilanka', cursive;
+}
+
+
+
+nav .logo h4 a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+nav .logo b{
+    color: yellow;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none !important;
+    font-family: 'Inter', sans-serif;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav ul li a:hover {
+    color: #c1c1e0;
+    content: '';
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+    border-bottom: 3px solid #c1c1e0;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+
+/* hamburger menu animation */
+
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+    background-color: white;
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 5;
+    }
+    nav .logo{
+        z-index: 3;
+    }
+    nav ul {
+        position: fixed;
+        top: 0px;
+        right: -400px;
+        height: 100vh;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        align-items: center;
+        background-color: #0c0966;
+        width: 60%;
+        z-index: 2;
+        transition: all 1s;
+        overflow-x: hidden;
+        opacity: 0;
+    }
+    nav ul li {
+        top: -100px;
+        margin-bottom: -30px;
+    }
+
+    nav ul.show {
+        right: 0;
+        opacity: 1;
+        background-color: #0c0966;
+    }
+
+    nav ul li a:hover {
+        color: rgb(234, 192, 255);
+    }
+
+}
